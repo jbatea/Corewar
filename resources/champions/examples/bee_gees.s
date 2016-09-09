@@ -1,24 +1,19 @@
 .name "stayin' alive"
 .comment "Ha, Ha, Ha, stayiiiiin' aliiiiiiiiiive"
-	
-sti	r1, %:live, %1			;change live by the right value
-sti	r1, %:live2, %1			;change live by the right value
+
+# INDICATED SIZE : 77
+
+sti	r1, %69, %1
+sti	r1, %34, %1
 ld	%1, r3
 ld	%33, r6
-#While (r2 < 10)
-forks:
-add	r2, r3, r2		;increment r2
-xor	r2, %15, r4		;if (r4) {carry = 0}
-live2:
-	live 	%4
-zjmp	%:endwhile		;if (carry)
-fork	%:forks
-ld	%0, r4			;carry = 1
-zjmp	%:forks
-#EndWhile
-endwhile:
-ld	%0, r4			;carry = 1
-
-live:
-live %4
-zjmp %:live
+add	r2, r3, r2
+xor	r2, %15, r4
+live	%4
+zjmp	%16
+fork	%-21
+ld	%0, r4
+zjmp	%-31
+ld	%0, r4
+live	%4
+zjmp	%-5
