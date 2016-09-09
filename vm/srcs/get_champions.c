@@ -6,7 +6,7 @@
 /*   By: ddela-cr <ddela-cr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/25 15:22:57 by ddela-cr          #+#    #+#             */
-/*   Updated: 2016/09/08 19:25:09 by vbaudin          ###   ########.fr       */
+/*   Updated: 2016/09/09 10:40:34 by jbateau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void		ft_extract_data(t_champion *champion, int fd)
 		ft_exit_error("Champion has no instructions in body : ",
 		champion->name);
 	champion->data = ft_memalloc(size);
+	if (!(champion->data))
+		ft_exit_error("Malloc t_process failed", NULL);
 	champion->data = (unsigned char *)ft_memcpy(champion->data, buf, size);
 	size = read(fd, buf, CHAMP_MAX_SIZE + 1);
 	if (size > CHAMP_MAX_SIZE)

@@ -6,7 +6,7 @@
 /*   By: vbaudin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/30 11:44:50 by vbaudin           #+#    #+#             */
-/*   Updated: 2016/08/30 11:54:40 by vbaudin          ###   ########.fr       */
+/*   Updated: 2016/09/09 10:41:31 by jbateau          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ t_vm		*init_vm(void)
 	int		i;
 
 	vm = (t_vm *)ft_memalloc(sizeof(t_vm));
+	if (!vm)
+		ft_exit_error("Malloc t_process failed", NULL);
 	i = 0;
 	vm->cycle_to_die = CYCLE_TO_DIE;
 	vm->nb_executed_live = 0;
